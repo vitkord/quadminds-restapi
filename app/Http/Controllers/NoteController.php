@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Note;
+use App\Http\Resources\Note as NoteResource;
 
 class NoteController extends Controller
 {
     public function index()
     {
-      	$notes = Note::all();
+      	$notes = Note::orderBy('id', 'desc')->paginate(5);
 
-      	return $notes;
+      	return NoteResource::collection($notes);
     }
     /**
      * Store a newly created resource in storage.
@@ -21,13 +22,14 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-      	$note = new Note;
-      	$note->title = $request->input('title');
-      	$note->content = $request->input('content');
+        $note = new Note;
+        $note->title = $request->input('title');
+        $note->content = $request->input('content'); 
 
-      	$note->save();
-
-      	return $note;
+        if ($note->save()) 
+        {
+            return new NoteResource($note);
+        }
     }
     /**
      * Display the specified resource.
@@ -37,19 +39,28 @@ class NoteController extends Controller
      */
     public function show($id)
     {
-        //Solicitamos al modelo la nota con el id solicitado por GET.
-        return Note::where('id', $id)->get();
+        //traemos la nota
+        $note = Note::findOrFail($id);
+
+        //retornamos la nota como recurso
+        return new NoteResource($note);
     }
     
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $note = Note::find($id);
+        if ($request->isMethod('put')) 
+        {
+            $note = Note::findOrFail($request->note_id);
+            $note->title = $request->input('title');
+            $note->content = $request->input('content');
 
-        $note->title = $request->input('title');
-        $note->content = $request->input('content');
-        $note->save();
-
-        return $note;
+            if ($note->save()) 
+            {
+                return new NoteResource($note);    
+            } 
+        }
+        
+        
     }
     /**
      * Remove the specified resource from storage.
@@ -59,9 +70,12 @@ class NoteController extends Controller
      */
     public function destroy($id)
     {
-         $note = Note::find($id);
-         $note->delete();
-
-         return $note;
+        //buscamos la nota
+        $note = Note::findOrFail($id);
+        if ($note->delete()) 
+        {
+            //retornamos la nota como recurso
+            return new NoteResource($note);
+        }
     }
 }

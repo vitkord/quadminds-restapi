@@ -20,5 +20,5 @@ use Illuminate\Http\Request;
 Route::get('notes', 'NoteController@index');
 Route::get('notes/{id}', 'NoteController@show');
 Route::post('notes', 'NoteController@store');
-Route::put('notes/{id}', 'NoteController@update');
+Route::put('notes', 'NoteController@update');
 Route::delete('notes/{id}', 'NoteController@destroy');
