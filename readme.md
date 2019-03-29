@@ -18,3 +18,10 @@
 <p>DB_USERNAME=qminds</p>
 <p>DB_PASSWORD=quadminds123</p>
     
+<h2 align="center"> PHP version</h2>
+
+<p>7.2.14</p>
+
+<h2 align="center"> MySQL version</h2>
+
+<p>5.7.24</p>
