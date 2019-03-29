@@ -17,6 +17,10 @@
 <p>DB_DATABASE=quadminds</p>
 <p>DB_USERNAME=qminds</p>
 <p>DB_PASSWORD=quadminds123</p>
+
+<h2 align="center"> Apache version</h2>
+
+<p>2.4.37</p>
     
 <h2 align="center"> PHP version</h2>
 
