@@ -38,6 +38,8 @@
 <p>5- Si le aparece el error 'No application encryption key has been specified.', ejecute "php artisan key:generate" dentro de la carpeta raiz del proyecto</p>
 
 <p>http://quadminds-api.com/api/notes <-- Ruta de la API</p>
+
+<p>http://quadminds-api.com/ <-- Ruta del Front</p>
     
 
 
