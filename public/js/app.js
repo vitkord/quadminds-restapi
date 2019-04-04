@@ -1894,9 +1894,12 @@ __webpack_require__.r(__webpack_exports__);
         }).then(function (data) {
           _this3.note.title = '';
           _this3.note.content = '';
+          _this3.note.note_id = '';
           alert('Nota Modificada');
 
           _this3.fetchNotes();
+
+          _this3.edit = false;
         }).catch(function (error) {
           return console.log(error);
         });
@@ -36969,7 +36972,7 @@ var staticRenderFns = [
       [
         _c("div", { staticClass: "container" }, [
           _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-            _vm._v("LNotes")
+            _vm._v("Front End Notas")
           ])
         ])
       ]
@@ -49569,8 +49572,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\proyecto-quadminds\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\proyecto-quadminds\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\wamp64\www\quadminds-restapi\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\wamp64\www\quadminds-restapi\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

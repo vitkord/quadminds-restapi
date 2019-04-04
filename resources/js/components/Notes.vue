@@ -123,9 +123,11 @@
 					.then(response => response.json())
 					.then(data => {
 						this.note.title = '';
-						this.note.content= '';
+						this.note.content = '';
+						this.note.note_id = '';
 						alert('Nota Modificada');
 						this.fetchNotes();
+						this.edit = false;
 					})
 					.catch(error => console.log(error))
 				}
